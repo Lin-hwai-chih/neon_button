@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Glow</title>
+    <style>
+        html {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100%;
+        }
+
+        .button {
+            position: relative;
+            border: none;
+            outline: none;
+            width: 200px;
+            height: 60px;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 60px;
+            border-radius: 30px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: white;
+            background: linear-gradient(90deg, deepskyblue, deeppink, gold, deepskyblue);
+            background-size: 300%;
+            animation: neon 30s linear infinite;
+            /* animation-play-state: paused; */
+        }
+
+        .button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: inherit;
+            filter: blur(1px);
+            border-radius: 30px;
+            animation: glow 2s linear infinite;
+            /* animation-direction: alternate; */
+            z-index: -1;
+            /* animation-play-state: paused; */
+        }
+
+        .button:hover {
+            animation-play-state: running;
+            /* animation: none; */
+            /* animation: neon 30s linear infinite; */
+        }
+
+        .button:hover::after {
+            animation-play-state: running;
+            /* animation: none; */
+            /* animation: glow 2s linear infinite; */
+        }
+
+        @keyframes neon {
+            from {
+                background-position: 0%;
+
+            }
+
+            to {
+                background-position: 300%;
+            }
+        }
+
+        @keyframes glow {
+            from {
+                filter: blur(1px);
+
+            }
+
+
+            50% {
+                filter: blur(10px);
+            }
+
+            to {
+                filter: blur(1px);
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="button">Button</button>
+    <!-- <button class="button">Button</button>
+    <button class="button">Button</button>
+    <button class="button">Button</button> -->
+    <!-- <div class="button">dsadsad</div>
+    <a href="#" class="button">AAAAAAAAA</a> -->
+
+</body>
+
+</html>
